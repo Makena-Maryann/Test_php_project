@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Order matters. The routes with with wildcards {} take precedence.
+//Order matters. The routes with wildcards {} take precedence.
 
 Route::get('/posts', 'PostsController@index');
+Route::get('/posts/{post}', 'PostsController@show');
 

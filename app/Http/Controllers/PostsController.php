@@ -15,7 +15,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::latest()->get();
-        
+
         return view('posts.index', ['posts' => $posts]);
     }
 
@@ -46,11 +46,12 @@ class PostsController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $slug)
+    public function show(Post $id)
     {
-        return view('post', [
-                'post' => Post::where('slug', $slug)->firstOrFail()
-            ]);
+        $post = Post::find($id);
+
+        return view('posts.show', ['post' => $post]); 
+        
     }
 
     /**
