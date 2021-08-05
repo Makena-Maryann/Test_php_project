@@ -15,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 //Order matters. The routes with wildcards {} take precedence.
 
 Route::get('/posts', 'PostsController@index');
+Route::post('/posts', 'PostsController@store');
+Route::get('/posts/create', 'PostsController@create');
 Route::get('/posts/{post}', 'PostsController@show');
 
