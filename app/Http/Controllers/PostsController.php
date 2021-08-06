@@ -36,17 +36,8 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        request()->validate([
-            'title' => 'required',
-            'body'  => 'required'
-        ]);
-        
-        $post = new Post();
-        $post->title = request('title');
-        $post->body = request('body');
-
-        $post->save();
+    {   
+        Post::create($this->validatePost());
 
         return redirect('/posts');
     }
@@ -85,15 +76,7 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        request()->validate([
-            'title' => 'required',
-            'body'  => 'required'
-        ]);
-
-        $post->title = request('title');
-        $post->body = request('body');
-
-        $post->save();
+        $post->update($this->validatePost());
 
         return redirect('/posts/' .$post->id);
     }
@@ -107,5 +90,13 @@ class PostsController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    protected function validatePost()
+    {
+        return request()->validate([
+            'title' => 'required',
+            'body'  => 'required'
+        ]);
     }
 }
