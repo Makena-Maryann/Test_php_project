@@ -57,9 +57,8 @@ class PostsController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $id)
+    public function show(Post $post)
     {
-        $post = Post::find($id);
 
         return view('posts.show', ['post' => $post]); 
         
@@ -71,9 +70,8 @@ class PostsController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $id)
+    public function edit(Post $post)
     {
-        $post = Post::find($id);
 
         return view('posts.edit', compact('post'));
     }
@@ -85,14 +83,12 @@ class PostsController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $id)
+    public function update(Request $request, Post $post)
     {
         request()->validate([
             'title' => 'required',
             'body'  => 'required'
         ]);
-        
-        $post = Post::find($id);
 
         $post->title = request('title');
         $post->body = request('body');
