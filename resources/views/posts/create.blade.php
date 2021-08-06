@@ -11,9 +11,18 @@
     <form method="POST" action="/posts">
        @csrf
        <label for="title">Title:</label><br>
-       <input type="text" id="title" name="title"><br>
+       <input type="text" id="title" name="title" value="{{ old('title') }}" required><br>
+       
+       @error('title')
+            <p>{{ $errors->first('title') }}</p>
+       @enderror
+
        <label for="body">Content:</label><br>
-       <input type="text" id="body" name="body"><br><br>
+       <input type="text" id="body" name="body" value="{{ old('body') }}" required><br><br>
+
+       @error('body')
+            <p>{{ $errors->first('body') }}</p>
+       @enderror
        <input type="submit" value="Submit">
     </form>      
 </body>

@@ -12,9 +12,11 @@
        @csrf
        @method('PUT')
        <label for="title">Title:</label><br>
-       <input type="text" id="title" name="title" value="{{ $post->title }}"><br>
+       <input type="text" id="title" name="title" value="{{ $post->title }}" required><br>
+
        <label for="body">Content:</label><br>
-       <input type="text" id="body" name="body" value="{{ $post->body }}"><br><br>
+       <input type="text" id="body" name="body" value="{{ $post->body }}" required><br><br>
+
        <input type="submit" value="Submit">
     </form>      
 </body>
