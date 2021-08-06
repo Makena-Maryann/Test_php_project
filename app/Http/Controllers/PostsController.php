@@ -87,15 +87,19 @@ class PostsController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        
+        return redirect('/posts');
     }
 
     protected function validatePost()
     {
         return request()->validate([
             'title' => 'required',
+            'slug'  => 'required',
             'body'  => 'required'
         ]);
     }

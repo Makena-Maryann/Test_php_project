@@ -9,6 +9,13 @@
     </h2>  
     <p>
       {{ $post->body }}
-    </p>            
-  @endforeach   
+    </p> 
+
+     <a href="/posts/{{$post->id}}/edit">Edit</a> 
+
+    {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST'])!!}
+          {{Form::hidden('_method', 'DELETE')}}
+          {{Form::submit('Delete')}}
+    {!!Form::close()!!}           
+  @endforeach 
 @endsection

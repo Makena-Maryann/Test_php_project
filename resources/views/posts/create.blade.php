@@ -1,5 +1,6 @@
 @extends ('layout')
 
+
 @section ('content')
 <h1>New Article</h1>   
     <form method="POST" action="/posts">
@@ -9,6 +10,13 @@
        
        @error('title')
             <p>{{ $errors->first('title') }}</p>
+       @enderror
+
+       <label for="slug">Slug:</label><br>
+       <input type="slug" id="slug" name="slug" value="{{ old('slug') }}" required><br>
+       
+       @error('slug')
+            <p>{{ $errors->first('slug') }}</p>
        @enderror
 
        <label for="body">Content:</label><br>
