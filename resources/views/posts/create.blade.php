@@ -25,6 +25,18 @@
        @error('body')
             <p>{{ $errors->first('body') }}</p>
        @enderror
+
+       <label for="tags">Tags:</label><br>
+       <select name="tags[]" multiple>
+          @foreach ($tags as $tag)
+               <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+          @endforeach
+       </select><br><br>
+
+       @error('tags')
+            <p>{{ $errors->first('tags') }}</p>
+       @enderror
+
        <input type="submit" value="Submit">
     </form>      
 @endsection

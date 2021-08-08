@@ -30,7 +30,9 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('posts.create', [
+            'tags' => Tag::all()
+        ]);
     }
 
     /**
@@ -41,7 +43,13 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {   
-        Post::create($this->validatePost());
+        $this-> validatePost();
+
+        $post = new Post(request(['title', 'slug', 'body']));
+        $post->user_id = 1;
+        $post->save();
+
+        $post->tags()->attach(request('tags'));
 
         return redirect('/posts');
     }
@@ -104,7 +112,8 @@ class PostsController extends Controller
         return request()->validate([
             'title' => 'required',
             'slug'  => 'required',
-            'body'  => 'required'
+            'body'  => 'required',
+            'tags'  => 'exists:tags, id'
         ]);
     }
 }

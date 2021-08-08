@@ -28,9 +28,13 @@
 - Learnt about and implemented the layout file
 - Learnt about and use the blade conditional
 - Learnt and implemented the 7 Restful Controller Actions
-- Refreshed my memory on the HTTP Verbs and how and when to use them in laravel in relation to the Resful actions.
+- Refreshed my memory on the HTTP Verbs and how and when to use them in laravel in relation to the Resful actions
 - Implemented form validation in Laravel
 - Learnt about mass assignment and reduced redundancy in my controller methods.
+- Learnt about basic Eloquent relationships (belongsTo,hasMany and belongsToMany) and created a relationship between a suer and posts and between a user and tags
+- Learnt how to create Model Factory and created one for the Post class
+- Learnt how to register foreign keys and apply foreign key constraints
+- Dug deeper in the many to many Eloquent relationship and learnt about Pivot table and it's naming convenctions
 
 
 ### License
