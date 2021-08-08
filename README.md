@@ -25,6 +25,13 @@
 - Connected the project to MYSQL Workbench and manually added a table
 - Learnt how to create an Eloquent model, created a Post eloquent model
 - Created a creates_post_migration and added columns
+- Learnt about and implemented the layout file
+- Learnt about and use the blade conditional
+- Learnt and implemented the 7 Restful Controller Actions
+- Refreshed my memory on the HTTP Verbs and how and when to use them in laravel in relation to the Resful actions.
+- Implemented form validation in Laravel
+- Learnt about mass assignment and reduced redundancy in my controller methods.
+
 
 ### License
 

@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="/app.css">
 </head>
 <body>
-   <h1>My Blog Post</h1>
-
-   <p>{{ $post->body }}</p>
+   @yield ('content')
 </body>
 </html>
