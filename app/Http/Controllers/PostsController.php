@@ -14,7 +14,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->get();
+        if (request('tag')){
+            $posts = Tag::where('name', request('tag'))->firstOrFail()->posts;
+        } else {
+            $posts = Post::latest()->get();
+        }
 
         return view('posts.index', ['posts' => $posts]);
     }
