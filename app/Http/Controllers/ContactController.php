@@ -36,10 +36,8 @@ class ContactController extends Controller
     {
         request()->validate(['email' => 'required|email']);
         
-        Mail::raw('It works!', function($message){
-            $message->to(request('email'))
-                    ->subject('Hello There');
-        });
+        Mail::to(request('email'))
+            ->send(new ContactMe('tops'));
 
         return redirect('/contact')
                 ->with('message', 'Email Sent!');
