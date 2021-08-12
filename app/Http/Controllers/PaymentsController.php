@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\Contact;
+use App\Notifications\PaymentReceived;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class PaymentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('payments.create');
     }
 
     /**
@@ -35,13 +35,8 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(['email' => 'required|email']);
-        
-        Mail::to(request('email'))
-            ->send(new Contact());
-
-        return redirect('/contact')
-                ->with('message', 'Email Sent!');
+        request()->user()->notify(new PaymentReceived());
+        // Notification::send(request()->user(), new PaymentReceived());
     }
 
     /**
@@ -50,9 +45,9 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        return view('contact');
+        //
     }
 
     /**
