@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -46,7 +47,7 @@ class PostsController extends Controller
         $this-> validatePost();
 
         $post = new Post(request(['title', 'slug', 'body']));
-        $post->user_id = 1;
+        $post->user_id = 5;
         $post->save();
 
         $post->tags()->attach(request('tags'));

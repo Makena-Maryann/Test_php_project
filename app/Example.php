@@ -2,12 +2,16 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Example extends Model
+class Example
 {
-    public function go()
-    {
-        dump('It works!');
-    }
+   protected $collaborator;
+
+   protected $foo;
+
+   public function __construct(Collaborator $collaborator, $foo)
+   {
+       $this->collaborator = $collaborator;
+       $this->foo = $foo;
+   }
 }
