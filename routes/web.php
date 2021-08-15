@@ -30,5 +30,6 @@ Route::get('notifications', 'UserNotificationsController@show')->middleware('aut
 
 Route::get('/conversations', 'ConversationsController@index');
 Route::get('/conversations/{conversation}', 'ConversationsController@show');
+// Route::get('/conversations/{conversation}', 'ConversationsController@show')->middleware('can:view,conversation');
 
 Route::post('/best-replies/{reply}', 'ConversationBestReplyController@store');
