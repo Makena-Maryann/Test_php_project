@@ -46,6 +46,7 @@ class User extends Authenticatable
     {
         return '254747225434';
     }
+    
     public function conversations()
     {
         return $this->hasMany(Conversation::class);
@@ -56,4 +57,22 @@ class User extends Authenticatable
         return $this->hasMany(Reply::class);
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class)->withTimestamps();;
+    }
+
+    public function assignRole($role)
+    {
+        if (is_string($role)) {
+            $role = Role::whereName($role)->firstOrFail();
+        }
+
+        $this->roles()->sync($role, false);
+    }
+
+    public function abilities()
+    {
+        return $this->roles->map->abilities->flatten()->pluck('name')->unique();
+    }
 }

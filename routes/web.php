@@ -4,8 +4,13 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', 'PagesController@home');
+Route::get('/', function () {
+ return view('welcome');
+});
 
+Route::get('/reports', function () {
+ return 'the secret reports';
+})->middleware('can:view_reports');
 //Order matters. The routes with wildcards {} take precedence.
 
 Route::get('/posts', 'PostsController@index');
