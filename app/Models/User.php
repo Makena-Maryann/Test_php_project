@@ -46,4 +46,14 @@ class User extends Authenticatable
     {
         return '254747225434';
     }
+    public function conversations()
+    {
+        return $this->hasMany(Conversation::class);
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
 }
