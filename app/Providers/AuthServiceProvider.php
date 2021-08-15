@@ -32,5 +32,13 @@ class AuthServiceProvider extends ServiceProvider
         //     return $conversation->user->is($user);
 
         // });
+
+        Gate::before(function (User $user)
+        {
+            if ($user->id === 1){ //admin
+                return true;
+            }
+
+        });
     }
 }
