@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-    <link rel="stylesheet" href="/app.css">
+    <title>Document</title>
 </head>
 <body>
-   @yield ('content')
+    <h1>
+            Welcome to my website! We will upload new content soon!
+    </h1>
 </body>
 </html>
