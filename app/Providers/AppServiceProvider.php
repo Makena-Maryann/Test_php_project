@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Collaborator;
+use App\Example;
 use Illuminate\Support\ServiceProvider;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('example', function (){
+      
+            return new Example();
+      });
     }
 
     /**
