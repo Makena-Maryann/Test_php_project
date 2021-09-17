@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 //Order matters. The routes with wildcards {} take precedence.
 
+Route::get('/', function () {
+    return view('vue');
+});
+
 Route::get('/posts', 'PostsController@index');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts/create', 'PostsController@create');

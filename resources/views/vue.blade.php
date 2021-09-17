@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container">
-        <post-component :posts="{{ $posts }}"></post-component>
+        <example-component></example-component>
     </div>
 @endsection
